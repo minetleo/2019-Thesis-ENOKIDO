@@ -1,0 +1,107 @@
+\documentclass[12pt,a4j,report,dvipdfmx]{jsbook_mod}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{fancybox}
+\usepackage{eclbkbox}
+\usepackage{fancyhdr}
+\usepackage{titling}
+\usepackage{remreset}
+\usepackage{listings}
+\usepackage{here}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{tocloft}
+\usepackage{txfonts}
+\usepackage{listings}
+\usepackage{lscape}
+%\documentclass{jarticle}
+\usepackage{here}
+\usepackage{siunitx}
+\usepackage{comment}
+\usepackage[dvipdfmx]{graphicx}
+
+\lstset{
+  basicstyle={\ttfamily},
+  identifierstyle={\small},
+  commentstyle={\smallitshape},
+  keywordstyle={\small\bfseries},
+  ndkeywordstyle={\small},
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},
+  numbers=left,
+  xrightmargin=0zw,
+  xleftmargin=3zw,
+  numberstyle={\scriptsize},
+  stepnumber=1,
+  numbersep=1zw,
+  lineskip=-0.5ex
+}
+
+
+%図表目次の頭のため
+%図表目次の番号の頭に「図」・「表」と入れるやつここから
+\newlength{\mylenfig}%図用
+\renewcommand{\cftfigpresnum}{\figurename\enspace}
+\renewcommand{\cftfigaftersnum}{\hspace{1em}}
+\settowidth{\mylenfig}{\cftfigpresnum\cftfigaftersnum}
+\addtolength{\cftfignumwidth}{\mylenfig}
+
+\newlength{\mylentab}%表用
+\renewcommand{\cfttabpresnum}{\tablename\enspace}
+\renewcommand{\cfttabaftersnum}{\hspace{1em}}
+\settowidth{\mylentab}{\cfttabpresnum\cfttabaftersnum}
+\addtolength{\cfttabnumwidth}{\mylentab}
+
+\setlength{\cftchapnumwidth}{3.8em}%何故か崩れる章のインデント調節
+\setlength{\cftbeforetoctitleskip}{0pt}
+\setlength{\cftaftertoctitleskip}{10pt}
+
+\setlength{\cftbeforeloftitleskip}{0pt}
+\setlength{\cftafterloftitleskip}{10pt}
+
+\setlength{\cftbeforelottitleskip}{0pt}
+\setlength{\cftafterlottitleskip}{10pt}
+%図表目次の番号の頭に「図」・「表」と入れるやつここまで
+\begin{document}
+\pagestyle{empty}
+\include{include/title}
+\newpage
+\pagestyle{plain}
+\setcounter{page}{1}
+\pagenumbering{roman}
+\include{include/abst}
+\newpage
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+
+\include{include/chapter1}
+
+\include{include/chapter2}
+
+\include{include/chapter3}
+
+\include{include/chapter4}
+
+\include{include/chapter5}
+
+\include{include/acknowledgements}
+
+\bibliographystyle{sieicej}
+\bibliography{ref.bib} 
+
+\appendix
+
+
+
+\end{document}
